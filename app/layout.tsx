@@ -1,26 +1,26 @@
-import React from "react"
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import React from "react";
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import './globals.css';
 
-import './globals.css'
-
-const geist = Geist({ subsets: ['latin'], variable: '--font-sans' })
-const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono' })
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
+const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
 export const metadata: Metadata = {
   title: 'Solar Nusantara | Premium Electrical Materials & Solar Systems',
   description: 'Powering Indonesia\'s industrial future with premium electrical materials and solar/PLTS energy systems for businesses.',
   generator: 'v0.app',
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
+        {/* Script untuk set theme sebelum render */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -29,7 +29,6 @@ export default function RootLayout({
                   const theme = localStorage.getItem('theme') || 'dark';
                   if (theme === 'light') {
                     document.documentElement.classList.add('light-mode');
-                    document.documentElement.classList.remove('dark');
                   }
                 } catch (e) {}
               })()
@@ -37,7 +36,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans antialiased">{children}</body>
+      <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased`}>
+        {children}
+      </body>
     </html>
-  )
+  );
 }

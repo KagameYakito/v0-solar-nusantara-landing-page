@@ -6,112 +6,83 @@
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .glow {
     box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
   }
-  
+
   .glow-orange {
     box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
   }
 }
 
-@layer base {
-  :root {
-    --background: 15 18% 8%;
-    --foreground: 210 14% 95%;
-    --card: 15 18% 12%;
-    --card-foreground: 210 14% 95%;
-    --popover: 15 18% 12%;
-    --popover-foreground: 210 14% 95%;
-    --primary: 210 100% 50%;
-    --primary-foreground: 15 18% 8%;
-    --secondary: 25 86% 50%;
-    --secondary-foreground: 15 18% 8%;
-    --muted: 15 18% 25%;
-    --muted-foreground: 210 14% 65%;
-    --accent: 210 100% 50%;
-    --accent-foreground: 15 18% 8%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 15 18% 20%;
-    --input: 15 18% 18%;
-    --ring: 210 100% 50%;
-    --chart-1: 210 100% 50%;
-    --chart-2: 25 86% 50%;
-    --chart-3: 180 60% 50%;
-    --chart-4: 270 60% 50%;
-    --chart-5: 60 70% 50%;
-    --radius: 0.5rem;
-  }
-  
-  .dark {
-    --background: 15 18% 8%;
-    --foreground: 210 14% 95%;
-    --card: 15 18% 12%;
-    --card-foreground: 210 14% 95%;
-    --popover: 15 18% 12%;
-    --popover-foreground: 210 14% 95%;
-    --primary: 210 100% 50%;
-    --primary-foreground: 15 18% 8%;
-    --secondary: 25 86% 50%;
-    --secondary-foreground: 15 18% 8%;
-    --muted: 15 18% 25%;
-    --muted-foreground: 210 14% 65%;
-    --accent: 210 100% 50%;
-    --accent-foreground: 15 18% 8%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 15 18% 20%;
-    --input: 15 18% 18%;
-    --ring: 210 100% 50%;
-    --chart-1: 210 100% 50%;
-    --chart-2: 25 86% 50%;
-    --chart-3: 180 60% 50%;
-    --chart-4: 270 60% 50%;
-    --chart-5: 60 70% 50%;
-  }
+/* === DEFAULT = DARK MODE === */
+:root {
+  --background: 15 18% 8%;
+  /* #0f172a */
+  --foreground: 210 14% 95%;
+  /* white */
+  --card: 15 18% 12%;
+  --card-foreground: 210 14% 95%;
+  --popover: 15 18% 12%;
+  --popover-foreground: 210 14% 95%;
+  --primary: 210 100% 50%;
+  /* electric blue */
+  --primary-foreground: 15 18% 8%;
+  --secondary: 25 86% 50%;
+  /* solar orange */
+  --secondary-foreground: 15 18% 8%;
+  --muted: 15 18% 25%;
+  --muted-foreground: 210 14% 65%;
+  --accent: 210 100% 50%;
+  --accent-foreground: 15 18% 8%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 15 18% 20%;
+  --input: 15 18% 18%;
+  --ring: 210 100% 50%;
+  --radius: 0.5rem;
+}
+
+/* === LIGHT MODE OVERRIDE === */
+html.light-mode {
+  --background: 50 20% 97%;
+  /* #fff9c4 - light yellow */
+  --foreground: 0 0% 10%;
+  /* black */
+  --card: 50 25% 99%;
+  --card-foreground: 0 0% 10%;
+  --popover: 50 25% 99%;
+  --popover-foreground: 0 0% 10%;
+  --primary: 45 95% 50%;
+  /* dark yellow */
+  --primary-foreground: 0 0% 10%;
+  --secondary: 45 95% 50%;
+  --secondary-foreground: 0 0% 10%;
+  --muted: 50 15% 85%;
+  --muted-foreground: 0 0% 50%;
+  --accent: 45 95% 50%;
+  --accent-foreground: 0 0% 10%;
+  --border: 50 15% 90%;
+  --input: 50 20% 93%;
+  --ring: 45 95% 50%;
 }
 
 @layer base {
   * {
     @apply border-border;
   }
-  
+
   html {
     color-scheme: dark;
   }
-  
-  body {
-    @apply bg-background text-foreground;
-  }
 
-  /* Light Mode Styles */
   html.light-mode {
     color-scheme: light;
   }
 
-  html.light-mode {
-    --background: 50 20% 97%;
-    --foreground: 0 0% 10%;
-    --card: 50 25% 99%;
-    --card-foreground: 0 0% 10%;
-    --popover: 50 25% 99%;
-    --popover-foreground: 0 0% 10%;
-    --primary: 45 95% 50%;
-    --primary-foreground: 0 0% 10%;
-    --secondary: 45 95% 50%;
-    --secondary-foreground: 0 0% 10%;
-    --muted: 50 15% 85%;
-    --muted-foreground: 0 0% 50%;
-    --accent: 45 95% 50%;
-    --accent-foreground: 0 0% 10%;
-    --border: 50 15% 90%;
-    --input: 50 20% 93%;
-    --ring: 45 95% 50%;
-  }
-
-  html.light-mode body {
-    @apply bg-yellow-50 text-gray-900;
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
