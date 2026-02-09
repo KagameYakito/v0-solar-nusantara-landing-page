@@ -8,24 +8,25 @@ export default function HeroSection() {
     <section className="relative w-full min-h-screen lg:min-h-[90vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background Image with Gradient Fade */}
       <div className="absolute inset-0 -z-20">
-        {/* Image Layer */}
+        {/* Image Layer - Solar panels visible at top */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: 'url(/solar-grid-background.jpg)',
+            backgroundPosition: 'center top',
             backgroundAttachment: 'fixed',
           }}
         />
 
-        {/* Gradient Fade Overlay - Image fades from full opacity to transparent */}
+        {/* Fade Overlay - Image fades from top to middle, then transitions to dark gradient */}
         <div
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 35%, rgba(15,23,42,0.7) 60%, rgba(30,41,59,1) 100%)',
+            background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 20%, rgba(15,23,42,0.4) 40%, rgba(15,23,42,0.7) 55%, rgba(15,23,42,1) 70%, rgba(30,41,59,1) 100%)',
           }}
         />
 
-        {/* Solid Dark Gradient Background (below fade) */}
+        {/* Solid Dark Gradient Background - Fills below fade transition */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800" />
       </div>
 
