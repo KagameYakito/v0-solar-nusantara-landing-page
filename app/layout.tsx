@@ -19,7 +19,24 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const theme = localStorage.getItem('theme') || 'dark';
+                  if (theme === 'light') {
+                    document.documentElement.classList.add('light-mode');
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {}
+              })()
+            `,
+          }}
+        />
+      </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
   )
